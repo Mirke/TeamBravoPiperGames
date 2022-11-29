@@ -1,18 +1,18 @@
-package teambravo.pipergames.Controller;
+package teambravo.pipergames.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import teambravo.pipergames.View.PiperGameMainView;
+import teambravo.pipergames.Views.PiperGamesMainView;
 
 /**
  * <code>PiperGameController</code> is a middle layer that connects Back-End with Front-End vise versa.
  */
-public class PiperGameController {
+public class PiperGamesController {
 
     //---------------------------------------------------------------
     // Properties
     //---------------------------------------------------------------
-    PiperGameMainView piperGameMainView;
+    PiperGamesMainView piperGamesMainView;
 
     @FXML
     private Label welcomeText;
