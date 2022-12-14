@@ -6,6 +6,10 @@
 
 Jira - https://mikaelmirke.atlassian.net/jira/software/projects/TBPG/boards/2/roadmap
 
+Software design follows the MVC-style. Where M for Model stands for business and backend code.
+V stands for View which is the GUI and the part user interacts and sees. C stands for controller
+it connects front-end View and back-end Model.
+
 # TODO
 - [ ] Introduction
 - [ ] Add Contributors
