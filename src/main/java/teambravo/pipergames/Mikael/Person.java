@@ -1,4 +1,6 @@
 package teambravo.pipergames.Mikael;
+import teambravo.pipergames.Karin.CRUD;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,9 +37,6 @@ public class Person {
 
     @Column(name = "e_mail")
     private String e_mail;
-
-    @Column(name = "player")
-    private boolean isPlayer;
 
     public Person() {
 
