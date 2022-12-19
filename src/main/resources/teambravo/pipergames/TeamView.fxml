@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="416.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/18.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teambravo.pipergames.Controllers.TeamController">
+<AnchorPane prefHeight="416.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teambravo.pipergames.Controllers.TeamController">
     <children>
         <Button fx:id="buttonStaff" layoutX="48.0" layoutY="25.0" mnemonicParsing="false" onAction="#runStaffView" prefHeight="28.0" prefWidth="92.0" text="Staff">
             <font>
@@ -83,7 +83,7 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Button layoutX="301.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Update">
+        <Button fx:id="updateButton" layoutX="301.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingUpdateButton" prefHeight="25.0" prefWidth="70.0" text="Update">
             <effect>
                 <DropShadow>
                     <color>
