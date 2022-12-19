@@ -16,7 +16,7 @@ INSERT INTO teams (team_name,first_nickname,second_nickname,third_nickname,fourt
 ('Neck Breakers','Q Tip','Cheeseball','Barbie','Sugar Cube','Bee'),
 ('Nuns For Runs','Queen','Hot Stuff','Junior','Dude','Ride or die'),
 ('Cheeses And Chips','Bambi','Soul Sister','Doc','Giggles','Bro'),
-('Cougars','Blondie','Amigo','BFF','Bubba Gump','Smiley','Sugar Cube'),
+('Cougars','Blondie','Amigo','BFF','Bubba Gump','Smiley'),
 ('Give_Us_Booze','Rambo','Buttercup','Coach','Homegirl','Angel'),
 ('OneLifeOneChance','Chica','Sunshine','Couch Potato','Good Looking','Pumpkin'),
 ('Godsfavouriteteam','Dream Girl','McDreamy','Silly Billy','Kitty Cat','Prince Charming'),
