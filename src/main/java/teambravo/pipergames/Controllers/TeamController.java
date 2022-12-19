@@ -51,6 +51,9 @@ public class TeamController {
     public Button updateButton;
 
     @FXML
+    public Button deleteButton;
+
+    @FXML
     public Label helloWorld;
 
     public TeamController() {
@@ -150,7 +153,38 @@ public class TeamController {
         updateTeam(team);
 
         OPTIONS.set(comboBox.getSelectionModel().getSelectedIndex(),team.getTeam_name());
+    }
 
+    public void pushDeleteButton(ActionEvent e){
+
+        int teamID = 0;
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction transaction = null;
+
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
+            List<Team> teams = allTeamQuery.getResultList();
+            for (Team team : teams) {
+                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
+                    teamID = team.getTeamID();
+                    break;
+                }
+            }
+
+            transaction.commit();
+        } catch (Exception x) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            x.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+
+        deleteTeamByID(teamID);
+        OPTIONS.remove(comboBox.getSelectionModel().getSelectedIndex());
 
     }
 

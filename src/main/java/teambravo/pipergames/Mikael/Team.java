@@ -24,6 +24,8 @@ public class Team {
     private String fourth_nickname;
     @Column
     private String fifth_nickname;
+    @Column
+    private String game;
 
     @ManyToOne
     @JoinColumn(name = "gameID")
@@ -32,13 +34,15 @@ public class Team {
     public Team() {
     }
 
-    public Team(String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname) {
+    public Team(int teamID, String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname, String game) {
+        this.teamID = teamID;
         this.team_name = team_name;
         this.first_nickname = first_nickname;
         this.second_nickname = second_nickname;
         this.third_nickname = third_nickname;
         this.fourth_nickname = fourth_nickname;
         this.fifth_nickname = fifth_nickname;
+        this.game = game;
     }
 
     public Team(String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname, Game game) {
@@ -59,7 +63,6 @@ public class Team {
         this.third_nickname = third_nickname;
         this.fourth_nickname = fourth_nickname;
         this.fifth_nickname = fifth_nickname;
-        this.game = game;
     }
 
     public int getTeamID() {
