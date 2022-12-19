@@ -20,8 +20,5 @@ public class PiperGamesController {
     //---------------------------------------------------------------
     // Event Handlers
     //---------------------------------------------------------------
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+
 }
