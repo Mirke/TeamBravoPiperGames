@@ -31,7 +31,7 @@ public class PiperGamesMainView extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/teambravo/pipergames/piper-games-mainview.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 640, 580);
         stage.setTitle("Piper Games");
         stage.setScene(scene);
         stage.show();
