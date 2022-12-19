@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="48.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="Staff">
+      <Button layoutX="48.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="teambravo.pipergames.Nicolina.Staff">
          <font>
             <Font name="Tahoma" size="14.0" />
          </font>

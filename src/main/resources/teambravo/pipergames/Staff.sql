@@ -25,4 +25,3 @@ SELECT * FROM staff;
 DESCRIBE staff;
 
 #visa, lägga till, ändra och ta bort personal (Pied piper anställda som ska kunna hantera applikationen)
-DROP TABLE songs;
