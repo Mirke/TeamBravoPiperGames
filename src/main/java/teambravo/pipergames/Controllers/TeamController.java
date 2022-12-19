@@ -14,6 +14,7 @@ import teambravo.pipergames.Mikael.Team;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 public class TeamController {
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("hibernate");
@@ -44,6 +45,9 @@ public class TeamController {
     public Button readButton;
 
     @FXML
+    public Button createButton;
+
+    @FXML
     public Label helloWorld;
 
     public TeamController() {
@@ -58,21 +62,56 @@ public class TeamController {
     }
 
 
-    public void pushingReadButton(ActionEvent e) {
-        int index = comboBox.getSelectionModel().getSelectedIndex();
-        Team team = readByID(index+1);
-        textFieldTeamName.textProperty().set(team.getTeam_name());
-        textFieldNickname.textProperty().set(team.getFirst_nickname());
-        textFieldSecondPlayer.textProperty().set(team.getSecond_nickname());
-        textFieldThirdPlayer.textProperty().set(team.getThird_nickname());
-        textFieldFourthPlayer.textProperty().set(team.getFourth_nickname());
-        textFieldFifthPlayer.textProperty().set(team.getFifth_nickname());
+    public void pushingCreateButton(ActionEvent e) {
+        Team newTeam = new Team(textFieldTeamName.getText(), textFieldNickname.getText(), textFieldSecondPlayer.getText(), textFieldThirdPlayer.getText(), textFieldFourthPlayer.getText(), textFieldFifthPlayer.getText());
+        OPTIONS.add(textFieldTeamName.getText());
+        createTeam(newTeam);
+
+        comboBox.getSelectionModel().selectLast();
     }
 
-    // TODO
-    public void pushingUpdateButton(ActionEvent e){
+    public void pushingReadButton(ActionEvent e) {
+        int index = 0;
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction transaction = null;
+
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
+            List<Team> teams = allTeamQuery.getResultList();
+            for (Team team : teams) {
+                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
+                    index = team.getTeamID();
+                }
+            }
+
+            transaction.commit();
+        } catch (Exception x) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            x.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+
+        Team team = readByID(index);
+        if(team != null) {
+            textFieldTeamName.textProperty().set(team.getTeam_name());
+            textFieldNickname.textProperty().set(team.getFirst_nickname());
+            textFieldSecondPlayer.textProperty().set(team.getSecond_nickname());
+            textFieldThirdPlayer.textProperty().set(team.getThird_nickname());
+            textFieldFourthPlayer.textProperty().set(team.getFourth_nickname());
+            textFieldFifthPlayer.textProperty().set(team.getFifth_nickname());
+        }
+
+    }
+
+
+    public void pushingUpdateButton(ActionEvent e) {
         int index = comboBox.getSelectionModel().getSelectedIndex();
-        Team team = readByID(index+1);
+        Team team = readByID(index + 1);
     }
 
     private void addInformationTeamName(Team team) {
