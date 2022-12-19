@@ -7,7 +7,7 @@ module teambravo.pipergames {
     requires org.hibernate.orm.core;
 
     exports teambravo.pipergames.Views;
-    opens teambravo.pipergames.Views to javafx.fxml, org.hibernate.orm.core;
+    opens teambravo.pipergames.Views to javafx.fxml,org.hibernate.orm.core;
     exports teambravo.pipergames.Controllers;
     opens teambravo.pipergames.Controllers to javafx.fxml, org.hibernate.orm.core;
     exports teambravo.pipergames.Mikael;
