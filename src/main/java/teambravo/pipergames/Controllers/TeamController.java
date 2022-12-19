@@ -48,6 +48,9 @@ public class TeamController {
     public Button createButton;
 
     @FXML
+    public Button updateButton;
+
+    @FXML
     public Label helloWorld;
 
     public TeamController() {
@@ -83,6 +86,7 @@ public class TeamController {
             for (Team team : teams) {
                 if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
                     index = team.getTeamID();
+                    break;
                 }
             }
 
@@ -110,8 +114,44 @@ public class TeamController {
 
 
     public void pushingUpdateButton(ActionEvent e) {
-        int index = comboBox.getSelectionModel().getSelectedIndex();
-        Team team = readByID(index + 1);
+        int teamID = 0;
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction transaction = null;
+
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
+            List<Team> teams = allTeamQuery.getResultList();
+            for (Team team : teams) {
+                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
+                    teamID = team.getTeamID();
+                    break;
+                }
+            }
+
+            transaction.commit();
+        } catch (Exception x) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            x.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+
+        Team team = readByID(teamID);
+        team.setTeam_name(textFieldTeamName.getText());
+        team.setFirst_nickname(textFieldNickname.getText());
+        team.setSecond_nickname(textFieldSecondPlayer.getText());
+        team.setThird_nickname(textFieldThirdPlayer.getText());
+        team.setFourth_nickname(textFieldFourthPlayer.getText());
+        team.setFifth_nickname(textFieldFifthPlayer.getText());
+        updateTeam(team);
+
+        OPTIONS.set(comboBox.getSelectionModel().getSelectedIndex(),team.getTeam_name());
+
+
     }
 
     private void addInformationTeamName(Team team) {
