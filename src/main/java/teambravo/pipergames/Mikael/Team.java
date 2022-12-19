@@ -22,11 +22,13 @@ public class Team {
     private String fourth_nickname;
     @Column
     private String fifth_nickname;
+    @Column
+    private String game;
 
     public Team() {
     }
 
-    public Team(int teamID, String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname) {
+    public Team(int teamID, String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname, String game) {
         this.teamID = teamID;
         this.team_name = team_name;
         this.first_nickname = first_nickname;
@@ -34,6 +36,7 @@ public class Team {
         this.third_nickname = third_nickname;
         this.fourth_nickname = fourth_nickname;
         this.fifth_nickname = fifth_nickname;
+        this.game = game;
     }
 
     public Team(String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname) {
