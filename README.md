@@ -24,6 +24,3 @@ it connects front-end View and back-end Model.
 - [ ] Other Requirements
 - [ ] Optional functions (not required)
 
-# Contributors
-
-[Mirke](https://github.com/Mirke)
