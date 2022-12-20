@@ -188,30 +188,6 @@ public class TeamController {
 
     }
 
-    private void addInformationTeamName(Team team) {
-        textFieldTeamName.setText(team.getTeam_name());
-    }
-
-    private void addInformationNickname(Team team) {
-        textFieldNickname.setText(team.getFirst_nickname());
-    }
-
-    private void addInformationSecondNickname(Team team) {
-        textFieldSecondPlayer.setText(team.getSecond_nickname());
-    }
-
-    private void addInformationThirdNickname(Team team) {
-        textFieldThirdPlayer.setText(team.getThird_nickname());
-    }
-
-    private void addInformationFourthNickname(Team team) {
-        textFieldFourthPlayer.setText(team.getFourth_nickname());
-    }
-
-    private void addInformationFifthNickname(Team team) {
-        textFieldFifthPlayer.setText(team.getFifth_nickname());
-    }
-
     public void addTeamsToComboBox() {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
