@@ -36,3 +36,22 @@ VALUES ('Sharks In Suits', 'Sloppy Nuts', 'Minion', 'Pork Chop', 'Baby Face', 'T
        ('Godsfavouriteteam', 'Dream Girl', 'McDreamy', 'Silly Billy', 'Kitty Cat', 'Prince Charming','WORLD OF TANKS'),
        ('Miracle Workers', 'hairy', 'Chubby Cheeks', 'Goofy', 'Hotshot', 'Brown Eyes','ROCKET LEAGUE'),
        ('The Honeymoon Is Over', 'Hobbit', 'Babyface', 'Blue Eyes', 'Chunky Monkey', 'Double Trouble','APEX');
+
+-- Example Database over games USED FOR TESTING FOREIGN KEY
+
+create table game (
+                      gameID int primary key not null auto_increment,
+                      name VARCHAR(40)
+);
+
+insert into game (name) value
+    ('DOTA'),
+    ('CS'),
+    ('LOL'),
+    ('VALORANT'),
+    ('SPLATOON 2'),
+    ('FORTNITE'),
+    ('FIFA 23'),
+    ('WORLD OF TANKS'),
+    ('ROCKET LEAGUE'),
+    ('APEX');
