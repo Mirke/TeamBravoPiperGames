@@ -1,0 +1,24 @@
+CREATE DATABASE bravo_Piper_Games;
+USE bravo_Piper_Games;
+
+CREATE TABLE game (
+gameID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+game_name VARCHAR (30)
+
+);
+
+INSERT INTO game(game_name)VALUES
+('DOTA'),
+('APEX'),
+('OVERWATCH'),
+('FORTNITE'),
+('WORLD OF TANKS'),
+('FIFA 23'),
+('ROCKET LEAGUE'),
+('COUNTER STRIKE'),
+('LEAGUE OF LEGENDS'),
+('SPLATOON 2');
+
+
+
+
