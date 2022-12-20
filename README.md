@@ -11,14 +11,14 @@ V stands for View which is the GUI and the part user interacts and sees. C stand
 it connects front-end View and back-end Model.
 
 # TODO
-- [ ] Introduction
-- [ ] Add Contributors
-- [ ] Planning
-- [ ] Create Flowchart
+- [x] Introduction
+- [x] Add Contributors
+- [x] Planning
+- [x] Create Flowchart
 - [ ] Design Database
 - [ ] Admin can administrate all data
 - [ ] Prototype of product
-- [ ] Front-End in JavaFX
+- [x] Front-End in JavaFX
 - [ ] Back-End MySQL
 - [ ] Functional Requirement
 - [ ] Other Requirements
