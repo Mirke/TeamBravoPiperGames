@@ -34,4 +34,4 @@ INSERT INTO person (first_name,last_name,nickname,address,zipcode,city,country,e
 ('Peter','Gren','Greaal', 'markgatan 56',70368, 'Karlstad','Sweden','belaukica@weinzed.se'),
 ('Erik','Svan' ,'Croosco', 'Haglundavägen 97',70350, 'Karlstad','Sweden','pvanolden@24hinbox.com');
 
-select * from person;
+
