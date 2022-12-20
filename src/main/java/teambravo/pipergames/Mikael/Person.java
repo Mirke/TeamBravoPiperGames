@@ -1,10 +1,7 @@
 package teambravo.pipergames.Mikael;
-import teambravo.pipergames.Karin.CRUD;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 
 public class Person {
@@ -38,11 +35,12 @@ public class Person {
     @Column(name = "e_mail")
     private String e_mail;
 
+
     public Person() {
 
     }
 
-    public Person(int personID, String first_name, String last_name, String nickname, String address, int zipcode, String city, String country, String e_mail, boolean isPlayer) {
+    public Person(int personID, String first_name, String last_name, String nickname, String address, int zipcode, String city, String country, String e_mail) {
         this.personID = personID;
         this.first_name = first_name;
         this.last_name = last_name;

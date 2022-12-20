@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class PersonMain  {
-    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("hibernate");
+    public static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("hibernate");
     final ObservableList person = FXCollections.observableArrayList();
     public static void main(String[] args) throws SQLException {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();

@@ -31,7 +31,7 @@ INSERT INTO person (first_name,last_name,nickname,address,zipcode,city,country,e
 ('Matteo','Zetterberg','Mouse', 'Klockarängsvägen 6',70375 ,'Karlstad','Sweden', 'beyoutheitoo@cashbackr.com'),
 ('Frans','Olander','Boo', 'Ginstvägen 13',70369, 'Karlstad','Sweden','kosarmarina@goliszek.net'),
 ('Elias','Hagström' ,'Precious', 'HertigKarlsAllé 87',70340, 'Karlstad','Sweden','fn4rg@weinzed.or'),
-('Peter','Gren','Greaal', 'markgatan 56',70368, 'Karlstad','Sweden','belaukica@weinzed.se'),
+('Peter','Gren','Greaal', 'Markgatan 56',70368, 'Karlstad','Sweden','belaukica@weinzed.se'),
 ('Erik','Svan' ,'Croosco', 'Haglundavägen 97',70350, 'Karlstad','Sweden','pvanolden@24hinbox.com');
 
 select * from person;
