@@ -12,5 +12,6 @@ module teambravo.pipergames {
     opens teambravo.pipergames.Controllers to javafx.fxml, org.hibernate.orm.core;
     exports teambravo.pipergames.Mikael;
     opens teambravo.pipergames.Mikael to javafx.fxml, org.hibernate.orm.core;
-
+    exports teambravo.pipergames.Sharmin;
+    opens teambravo.pipergames.Sharmin to javafx.fxml,org.hibernate.orm.core;
 }
