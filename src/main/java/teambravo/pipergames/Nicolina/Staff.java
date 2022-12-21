@@ -111,16 +111,16 @@ public class Staff {
 
     @Override
     public String toString() {
-        return "staff{" +
-                "staff_id=" + staff_id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", staff_nickname='" + staff_nickname + '\'' +
-                ", address='" + address + '\'' +
-                ", zipcode='" + zipcode + '\'' +
-                ", city='" + city + '\'' +
-                ", country='" + country + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return " " +
+                " " + staff_id +
+                " " + first_name + '\'' +
+                " " + last_name + '\'' +
+                " " + staff_nickname + '\'' +
+                " " + address + '\'' +
+                " " + zipcode + '\'' +
+                " " + city + '\'' +
+                " " + country + '\'' +
+                " " + email + '\'' +
+                ' ';
     }
 }
