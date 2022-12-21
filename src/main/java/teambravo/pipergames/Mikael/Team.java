@@ -1,5 +1,7 @@
 package teambravo.pipergames.Mikael;
 
+import teambravo.pipergames.Sharmin.Game;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,21 +24,12 @@ public class Team {
     private String fourth_nickname;
     @Column
     private String fifth_nickname;
-    @Column
-    private String game;
+
+    @ManyToOne
+    @JoinColumn(name = "gameID")
+    private Game game;
 
     public Team() {
-    }
-
-    public Team(int teamID, String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname, String game) {
-        this.teamID = teamID;
-        this.team_name = team_name;
-        this.first_nickname = first_nickname;
-        this.second_nickname = second_nickname;
-        this.third_nickname = third_nickname;
-        this.fourth_nickname = fourth_nickname;
-        this.fifth_nickname = fifth_nickname;
-        this.game = game;
     }
 
     public Team(String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname) {
@@ -46,6 +39,27 @@ public class Team {
         this.third_nickname = third_nickname;
         this.fourth_nickname = fourth_nickname;
         this.fifth_nickname = fifth_nickname;
+    }
+
+    public Team(String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname, Game game) {
+        this.team_name = team_name;
+        this.first_nickname = first_nickname;
+        this.second_nickname = second_nickname;
+        this.third_nickname = third_nickname;
+        this.fourth_nickname = fourth_nickname;
+        this.fifth_nickname = fifth_nickname;
+        this.game = game;
+    }
+
+    public Team(int teamID, String team_name, String first_nickname, String second_nickname, String third_nickname, String fourth_nickname, String fifth_nickname, Game game) {
+        this.teamID = teamID;
+        this.team_name = team_name;
+        this.first_nickname = first_nickname;
+        this.second_nickname = second_nickname;
+        this.third_nickname = third_nickname;
+        this.fourth_nickname = fourth_nickname;
+        this.fifth_nickname = fifth_nickname;
+        this.game = game;
     }
 
     public int getTeamID() {
@@ -104,6 +118,15 @@ public class Team {
         this.fifth_nickname = fifth_nickname;
     }
 
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     @Override
     public String toString() {
         return "Team{" +
@@ -114,6 +137,7 @@ public class Team {
                 ", third_nickname='" + third_nickname + '\'' +
                 ", fourth_nickname='" + fourth_nickname + '\'' +
                 ", fifth_nickname='" + fifth_nickname + '\'' +
+                ", game=" + game +
                 '}';
     }
 }

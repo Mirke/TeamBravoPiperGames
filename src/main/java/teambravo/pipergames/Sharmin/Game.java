@@ -41,4 +41,12 @@ public class Game {
     public void setGame_name(String game_name) {
         this.game_name = game_name;
     }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "gameID=" + gameID +
+                ", game_name='" + game_name + '\'' +
+                '}';
+    }
 }
