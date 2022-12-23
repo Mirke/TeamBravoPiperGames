@@ -9,6 +9,12 @@ import teambravo.pipergames.Controllers.TeamController;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * <code>TeamView</code> - Used for showing the application view and how TeamView works. - It is the GUI
+ *
+ * @author Mikael Eriksson (mikael.eriksson@edu.edugrade.se)
+ * @version 1.0.0
+ */
 public class TeamView extends Application {
 
     @Override
@@ -19,8 +25,6 @@ public class TeamView extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-
 
     public static void main(String[] args) throws SQLException {
         launch();

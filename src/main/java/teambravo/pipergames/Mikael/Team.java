@@ -1,9 +1,13 @@
 package teambravo.pipergames.Mikael;
-
 import teambravo.pipergames.Sharmin.Game;
-
 import javax.persistence.*;
 
+/**
+ * <code>Team</code> - Used to create Team entities for the software to handle.
+ *
+ * @author Mikael Eriksson (mikael.eriksson@edu.edugrade.se)
+ * @version 1.0.0
+ */
 @Entity
 @Table(name = "teams")
 public class Team {
@@ -12,18 +16,12 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int teamID;
 
-    @Column
-    private String team_name;
-    @Column
-    private String first_nickname;
-    @Column
-    private String second_nickname;
-    @Column
-    private String third_nickname;
-    @Column
-    private String fourth_nickname;
-    @Column
-    private String fifth_nickname;
+    @Column private String team_name;
+    @Column private String first_nickname;
+    @Column private String second_nickname;
+    @Column private String third_nickname;
+    @Column private String fourth_nickname;
+    @Column private String fifth_nickname;
 
     @ManyToOne
     @JoinColumn(name = "gameID")

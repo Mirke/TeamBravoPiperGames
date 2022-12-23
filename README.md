@@ -6,21 +6,15 @@
 
 Jira - https://mikaelmirke.atlassian.net/jira/software/projects/TBPG/boards/2/roadmap
 
-Software design follows the MVC-style. Where M for Model stands for business and backend code.
-V stands for View which is the GUI and the part user interacts and sees. C stands for controller
-it connects front-end View and back-end Model.
+How to use - 
 
-# TODO
-- [x] Introduction
-- [x] Add Contributors
-- [x] Planning
-- [x] Create Flowchart
-- [ ] Design Database
-- [ ] Admin can administrate all data
-- [ ] Prototype of product
-- [x] Front-End in JavaFX
-- [ ] Back-End MySQL
-- [ ] Functional Requirement
-- [ ] Other Requirements
-- [ ] Optional functions (not required)
+1. Setup correct settings in persistence.xml
+2. Run the Pipers_Games_Team.sql
+3. Run the TeamView.java file.
+
+Things I did was TeamController.java - Team.java and TeamView.java
+
+Fixed around in Piper_Games_Team.sql too.
+
+In branch Origin/MikaelTeam/SharminGames I tested thing out more.
 
