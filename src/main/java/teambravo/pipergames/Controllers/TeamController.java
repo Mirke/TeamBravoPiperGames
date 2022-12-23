@@ -4,16 +4,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import teambravo.pipergames.Mikael.Team;
 import teambravo.pipergames.Sharmin.Game;
-
-
 import javax.persistence.*;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+
+
 
 public class TeamController {
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("hibernate");
@@ -56,6 +61,13 @@ public class TeamController {
     @FXML
     public TextField textFieldGame;
 
+    @FXML
+    public Button buttonStaff;
+
+    private Stage stage;
+    private Parent root;
+    private Scene scene;
+
     public TeamController() {
     }
 
@@ -66,6 +78,14 @@ public class TeamController {
         comboBox.setItems(TEAM_OPTIONS);
         comboBox.getSelectionModel().select(0);
         //testCode();
+    }
+
+    public void runStaffView(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/teambravo/pipergames/piper-games-mainview.fxml"));
+        stage = (Stage)buttonStaff.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void testCode() {
@@ -369,4 +389,11 @@ public class TeamController {
     }
 
 
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public Scene getScene(){
+        return this.scene;
+    }
 }
