@@ -1,7 +1,7 @@
 package teambravo.pipergames.Views;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import teambravo.pipergames.Controllers.TeamController;
@@ -9,9 +9,8 @@ import teambravo.pipergames.Controllers.TeamController;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class PiperGamesTeamView extends Application {
+public class TeamView extends Application {
 
-    TeamController teamController;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/teambravo/pipergames/TeamView.fxml"));
@@ -20,6 +19,8 @@ public class PiperGamesTeamView extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+
 
     public static void main(String[] args) throws SQLException {
         launch();
