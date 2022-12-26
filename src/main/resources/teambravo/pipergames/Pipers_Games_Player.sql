@@ -1,7 +1,7 @@
 CREATE DATABASE bravo_Piper_Games;
 USE bravo_Piper_Games;
 
-    CREATE TABLE person (
+    CREATE TABLE player (
     personID INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(20),
     last_name VARCHAR(20),
@@ -12,7 +12,7 @@ USE bravo_Piper_Games;
     country VARCHAR(15) DEFAULT 'not known',
     e_mail VARCHAR(30) DEFAULT 'not known');
 
-INSERT INTO person (first_name,last_name,nickname,address,zipcode,city,country,e_mail)VALUES
+INSERT INTO player (first_name,last_name,nickname,address,zipcode,city,country,e_mail)VALUES
 ('Alice' ,'Andersson','Chichi', 'Mejramvägen 105', 70223,' Karlstad','Sweden','vikalj@boranora.com'),
 ('Vera', 'Johansson', 'Nugget','Storgatan 14', 70361,' Karlstad', 'Sweden','nurjatu@hobbymanagement.com'),
 ('Alma','Karlsson' ,'Teacup', 'Kassörsgatan 8', 69272 ,'Karlstad','Sweden','grafvik@uapemail.com'),
