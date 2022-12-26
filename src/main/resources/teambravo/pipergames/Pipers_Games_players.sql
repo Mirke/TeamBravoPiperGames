@@ -1,15 +1,12 @@
 CREATE DATABASE bravo_Piper_Games;
 USE bravo_Piper_Games;
 
-DROP DATABASE bravo_Piper_Games;
-DROP TABLE player;
-
 CREATE TABLE player (
-personID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-first_name VARCHAR(20),
-last_name VARCHAR(20),
-nickname VARCHAR(50),
-game VARCHAR (30)
+playerID INT PRIMARY KEY AUTO_INCREMENT,
+first_name VARCHAR(20) NOT NULL,
+last_name VARCHAR(20) NOT NULL,
+nickname VARCHAR(50) NOT NULL,
+game VARCHAR (30) NOT NULL
 );
 
 INSERT INTO player (first_name, last_name, nickname, game) VALUES

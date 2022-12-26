@@ -63,8 +63,8 @@ public class PlayerController {
 
 
     public void pushingCreateButton(ActionEvent e) {
-        Player newPlayer = new Player(textFieldNickname.getText(), textFieldFirst_name.getText(), textFieldLast_name.getText(), textFieldGame.getText());
-        //OPTIONS.add(textFieldPlayer.getText());
+        Player newPlayer = new Player(textFieldFirst_name.getText(), textFieldLast_name.getText(), textFieldNickname.getText(), textFieldGame.getText());
+        OPTIONS.add(textFieldNickname.getText());
         createPlayer(newPlayer);
 
         comboBox.getSelectionModel().selectLast();
@@ -99,9 +99,9 @@ public class PlayerController {
 
         Player player = readByID(index);
         if (player != null) {
-            textFieldNickname.textProperty().set(player.getNickname());
             textFieldFirst_name.textProperty().set(player.getFirst_name());
             textFieldLast_name.textProperty().set(player.getLast_name());
+            textFieldNickname.textProperty().set(player.getNickname());
             textFieldGame.textProperty().set(player.getGame());
 
         }
@@ -137,9 +137,9 @@ public class PlayerController {
         }
 
         Player player = readByID(playerID);
-        player.setNickname(textFieldNickname.getText());
         player.setFirst_name(textFieldFirst_name.getText());
         player.setLast_name(textFieldLast_name.getText());
+        player.setNickname(textFieldNickname.getText());
         player.setGame(textFieldGame.getText());
         updatePlayer(player);
 
@@ -179,19 +179,24 @@ public class PlayerController {
 
     }
 
-    private void addInformationNickname(Player player) {
-        textFieldNickname.setText(player.getNickname());
-    }
 
     private void addInformationFirst_name(Player player) {
+
         textFieldFirst_name.setText(player.getFirst_name());
     }
 
     private void addInformationLast_name(Player player) {
+
         textFieldLast_name.setText(player.getLast_name());
     }
 
-    private void addInformationChosenGame(Player player) {
+    private void addInformationNickname(Player player) {
+
+        textFieldNickname.setText(player.getNickname());
+    }
+
+
+    private void addInformationGame( Player player) {
         textFieldGame.setText(player.getGame());
     }
 
@@ -299,9 +304,9 @@ public class PlayerController {
             transaction = entityManager.getTransaction();
             transaction.begin();
             Player playerToUpdate = entityManager.find(Player.class, player.getPlayerID());
-            playerToUpdate.setNickname(player.getNickname());
             playerToUpdate.setFirst_name(player.getFirst_name());
             playerToUpdate.setLast_name(player.getLast_name());
+            playerToUpdate.setNickname(player.getNickname());
             playerToUpdate.setGame(player.getGame());
 
             entityManager.merge(playerToUpdate);
@@ -329,8 +334,8 @@ public class PlayerController {
             transaction = entityManager.getTransaction();
             transaction.begin();
             Player playerToBeRemoved = entityManager.find(Player.class, playerID);
-            // Call remove-method of the EntityManager on the rental-entity passed to the method to remove it
-            // from the managed objects.
+            /* Call remove-method of the EntityManager on the rental-entity passed to the method to remove it
+             from the managed objects.*/
             entityManager.remove(playerToBeRemoved);
             // Call flush-method of the EntityManager to write changes to the database.
             entityManager.flush();
