@@ -5,7 +5,7 @@ import teambravo.pipergames.Sharmin.Game;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "teams")
+@Table(name = "team")
 public class Team {
     @Id
     @Column
