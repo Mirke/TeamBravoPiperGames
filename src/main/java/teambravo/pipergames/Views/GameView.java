@@ -11,8 +11,6 @@ import java.sql.SQLException;
 
 public class GameView extends Application {
 
-
-    TeamController teamController;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/teambravo/pipergames/GameView.fxml"));

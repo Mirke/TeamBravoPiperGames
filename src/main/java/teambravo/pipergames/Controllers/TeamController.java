@@ -1,5 +1,6 @@
 package teambravo.pipergames.Controllers;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,16 +9,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import teambravo.pipergames.Mikael.Team;
-import teambravo.pipergames.Sharmin.Game;
+
 import javax.persistence.*;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
-
 
 
 public class TeamController {
@@ -25,44 +24,18 @@ public class TeamController {
     private static ObservableList<String> TEAM_OPTIONS = FXCollections.observableArrayList();
     private static ObservableList<String> GAME_OPTIONS = FXCollections.observableArrayList();
 
-    @FXML
-    public ComboBox comboBox;
 
-    @FXML
-    public TextField textFieldTeamName;
+    @FXML private Button buttonRead;
+    @FXML private Button buttonCreate;
+    @FXML private Button updateButton;
+    @FXML private Button deleteButton;
+    @FXML private Button buttonStaff;
+    @FXML private ListView listViewBox;
+    @FXML private TextField addingTeamField;
+    @FXML private Button addingTeamButton;
 
-    @FXML
-    public TextField textFieldNickname;
 
-    @FXML
-    public TextField textFieldSecondPlayer;
 
-    @FXML
-    public TextField textFieldThirdPlayer;
-
-    @FXML
-    public TextField textFieldFourthPlayer;
-
-    @FXML
-    public TextField textFieldFifthPlayer;
-
-    @FXML
-    public Button readButton;
-
-    @FXML
-    public Button createButton;
-
-    @FXML
-    public Button updateButton;
-
-    @FXML
-    public Button deleteButton;
-
-    @FXML
-    public TextField textFieldGame;
-
-    @FXML
-    public Button buttonStaff;
 
     private Stage stage;
     private Parent root;
@@ -72,52 +45,48 @@ public class TeamController {
     }
 
     @FXML
-        // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-        addTeamsToComboBox();
-        comboBox.setItems(TEAM_OPTIONS);
-        comboBox.getSelectionModel().select(0);
-        //testCode();
+
+
+
+        addTeamsToListViewBox();
+
+
+
+//        comboBox.setItems(TEAM_OPTIONS);
+//        comboBox.getSelectionModel().select(0);
     }
 
     public void runStaffView(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/teambravo/pipergames/piper-games-mainview.fxml"));
-        stage = (Stage)buttonStaff.getScene().getWindow();
+        stage = (Stage) buttonStaff.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    private void testCode() {
-        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        EntityTransaction transaction = null;
-        try {
-            transaction = entityManager.getTransaction();
-            transaction.begin();
-            TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
-            List<Team> teams = allTeamQuery.getResultList();
-
-            for (Team team : teams) {
-                System.out.println(team);
-            }
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            entityManager.close();
-        }
+    public void pushingAddingTeamButton(ActionEvent e)throws IOException{
+        String teamName = addingTeamField.getText();
+        createTeam(new Team(teamName));
+        Parent root = FXMLLoader.load(getClass().getResource("/teambravo/pipergames/TeamView.fxml"));
+        stage = (Stage) addingTeamButton.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
+    public void pushingCreateButton(ActionEvent e) throws IOException{
+//        Team newTeam = new Team(textFieldTeamName.getText(), textFieldNickname.getText(), textFieldSecondPlayer.getText(), textFieldThirdPlayer.getText(), textFieldFourthPlayer.getText(), textFieldFifthPlayer.getText());
+        //TEAM_OPTIONS.add(textFieldTeamName.getText());
+//        createTeam(newTeam);
 
-    public void pushingCreateButton(ActionEvent e) {
-        Team newTeam = new Team(textFieldTeamName.getText(), textFieldNickname.getText(), textFieldSecondPlayer.getText(), textFieldThirdPlayer.getText(), textFieldFourthPlayer.getText(), textFieldFifthPlayer.getText());
-        TEAM_OPTIONS.add(textFieldTeamName.getText());
-        createTeam(newTeam);
+//        comboBox.getSelectionModel().selectLast();
+        Parent root = FXMLLoader.load(getClass().getResource("/teambravo/pipergames/CreateTeamView.fxml"));
+        stage = (Stage) buttonCreate.getScene().getWindow();
 
-        comboBox.getSelectionModel().selectLast();
+        //scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void pushingReadButton(ActionEvent e) {
@@ -131,10 +100,10 @@ public class TeamController {
             TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
             List<Team> teams = allTeamQuery.getResultList();
             for (Team team : teams) {
-                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
-                    index = team.getTeamID();
-                    break;
-                }
+//                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
+//                    index = team.getTeamID();
+//                    break;
+//                }
             }
 
             transaction.commit();
@@ -148,14 +117,14 @@ public class TeamController {
         }
 
         Team team = readByID(index);
-        if(team != null) {
-            textFieldTeamName.textProperty().set(team.getTeam_name());
-            textFieldNickname.textProperty().set(team.getFirst_nickname());
-            textFieldSecondPlayer.textProperty().set(team.getSecond_nickname());
-            textFieldThirdPlayer.textProperty().set(team.getThird_nickname());
-            textFieldFourthPlayer.textProperty().set(team.getFourth_nickname());
-            textFieldFifthPlayer.textProperty().set(team.getFifth_nickname());
-            textFieldGame.textProperty().set(team.getGame().getGame_name());
+        if (team != null) {
+//            textFieldTeamName.textProperty().set(team.getTeam_name());
+//            textFieldNickname.textProperty().set(team.getFirst_nickname());
+//            textFieldSecondPlayer.textProperty().set(team.getSecond_nickname());
+//            textFieldThirdPlayer.textProperty().set(team.getThird_nickname());
+//            textFieldFourthPlayer.textProperty().set(team.getFourth_nickname());
+//            textFieldFifthPlayer.textProperty().set(team.getFifth_nickname());
+//            textFieldGame.textProperty().set(team.getGame().getGame_name());
         }
 
     }
@@ -172,10 +141,10 @@ public class TeamController {
             TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
             List<Team> teams = allTeamQuery.getResultList();
             for (Team team : teams) {
-                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
-                    teamID = team.getTeamID();
-                    break;
-                }
+//                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
+//                    teamID = team.getTeamID();
+//                    break;
+//                }
             }
 
             transaction.commit();
@@ -189,18 +158,18 @@ public class TeamController {
         }
 
         Team team = readByID(teamID);
-        team.setTeam_name(textFieldTeamName.getText());
-        team.setFirst_nickname(textFieldNickname.getText());
-        team.setSecond_nickname(textFieldSecondPlayer.getText());
-        team.setThird_nickname(textFieldThirdPlayer.getText());
-        team.setFourth_nickname(textFieldFourthPlayer.getText());
-        team.setFifth_nickname(textFieldFifthPlayer.getText());
+//        team.setTeam_name(textFieldTeamName.getText());
+//        team.setFirst_nickname(textFieldNickname.getText());
+//        team.setSecond_nickname(textFieldSecondPlayer.getText());
+//        team.setThird_nickname(textFieldThirdPlayer.getText());
+//        team.setFourth_nickname(textFieldFourthPlayer.getText());
+//        team.setFifth_nickname(textFieldFifthPlayer.getText());
         updateTeam(team);
 
-        TEAM_OPTIONS.set(comboBox.getSelectionModel().getSelectedIndex(),team.getTeam_name());
+//        TEAM_OPTIONS.set(comboBox.getSelectionModel().getSelectedIndex(), team.getTeam_name());
     }
 
-    public void pushDeleteButton(ActionEvent e){
+    public void pushDeleteButton(ActionEvent e) {
 
         int teamID = 0;
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
@@ -212,10 +181,10 @@ public class TeamController {
             TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
             List<Team> teams = allTeamQuery.getResultList();
             for (Team team : teams) {
-                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
-                    teamID = team.getTeamID();
-                    break;
-                }
+//                if (Objects.equals(comboBox.getSelectionModel().getSelectedItem().toString(), team.getTeam_name())) {
+//                    teamID = team.getTeamID();
+//                    break;
+//                }
             }
 
             transaction.commit();
@@ -229,35 +198,11 @@ public class TeamController {
         }
 
         deleteTeamByID(teamID);
-        TEAM_OPTIONS.remove(comboBox.getSelectionModel().getSelectedIndex());
+//        TEAM_OPTIONS.remove(comboBox.getSelectionModel().getSelectedIndex());
 
     }
 
-    private void addInformationTeamName(Team team) {
-        textFieldTeamName.setText(team.getTeam_name());
-    }
-
-    private void addInformationNickname(Team team) {
-        textFieldNickname.setText(team.getFirst_nickname());
-    }
-
-    private void addInformationSecondNickname(Team team) {
-        textFieldSecondPlayer.setText(team.getSecond_nickname());
-    }
-
-    private void addInformationThirdNickname(Team team) {
-        textFieldThirdPlayer.setText(team.getThird_nickname());
-    }
-
-    private void addInformationFourthNickname(Team team) {
-        textFieldFourthPlayer.setText(team.getFourth_nickname());
-    }
-
-    private void addInformationFifthNickname(Team team) {
-        textFieldFifthPlayer.setText(team.getFifth_nickname());
-    }
-
-    public void addTeamsToComboBox() {
+    public void addTeamsToListViewBox() {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
         try {
@@ -265,7 +210,6 @@ public class TeamController {
             transaction.begin();
             TypedQuery<Team> allTeamQuery = entityManager.createQuery("from Team", Team.class);
             List<Team> teams = allTeamQuery.getResultList();
-
             for (Team team : teams) {
                 TEAM_OPTIONS.add(team.getTeam_name());
             }
@@ -285,7 +229,6 @@ public class TeamController {
     public void getAllTeamsPrinted() {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
-
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
@@ -309,7 +252,6 @@ public class TeamController {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
         boolean isSuccess = true;
-
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
@@ -356,17 +298,16 @@ public class TeamController {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
         boolean isSuccess = true;
-
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
             Team teamToUpdate = entityManager.find(Team.class, team.getTeamID());
-            teamToUpdate.setTeam_name(team.getTeam_name());
-            teamToUpdate.setFirst_nickname(team.getFirst_nickname());
-            teamToUpdate.setSecond_nickname(team.getSecond_nickname());
-            teamToUpdate.setThird_nickname(team.getThird_nickname());
-            teamToUpdate.setFourth_nickname(team.getFourth_nickname());
-            teamToUpdate.setFifth_nickname(team.getFifth_nickname());
+//            teamToUpdate.setTeam_name(team.getTeam_name());
+//            teamToUpdate.setFirst_nickname(team.getFirst_nickname());
+//            teamToUpdate.setSecond_nickname(team.getSecond_nickname());
+//            teamToUpdate.setThird_nickname(team.getThird_nickname());
+//            teamToUpdate.setFourth_nickname(team.getFourth_nickname());
+//            teamToUpdate.setFifth_nickname(team.getFifth_nickname());
             entityManager.merge(teamToUpdate);
             // Commit the changes
             transaction.commit();
@@ -376,7 +317,6 @@ public class TeamController {
             }
             e.printStackTrace();
             isSuccess = false;
-
         } finally {
             entityManager.close();
         }
@@ -387,17 +327,12 @@ public class TeamController {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
         boolean isSuccess = true;
-
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
             Team teamToBeRemoved = entityManager.find(Team.class, ID);
-            // Call remove-method of the EntityManager on the rental-entity passed to the method to remove it
-            // from the managed objects.
             entityManager.remove(teamToBeRemoved);
-            // Call flush-method of the EntityManager to write changes to the database.
             entityManager.flush();
-            // Commit the changes
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -405,19 +340,17 @@ public class TeamController {
             }
             e.printStackTrace();
             isSuccess = false;
-
         } finally {
             entityManager.close();
         }
         return isSuccess;
     }
 
-
     public void setScene(Scene scene) {
         this.scene = scene;
     }
 
-    public Scene getScene(){
+    public Scene getScene() {
         return this.scene;
     }
 }
