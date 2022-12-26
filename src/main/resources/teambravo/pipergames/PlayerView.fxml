@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="416.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teambravo.pipergames.Controllers.PlayerController">
     <children>
-        <Button fx:id="buttonPlayer" layoutX="48.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="Staff">
+        <Button fx:id="buttonPlayer" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="Player">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -27,7 +27,7 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Button layoutX="457.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="Player">
+        <Button layoutX="139.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="Teams">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -39,7 +39,7 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Button layoutX="324.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="Teams">
+        <Button layoutX="253.0" layoutY="25.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="92.0" text="Games">
             <effect>
                 <DropShadow height="9.14" radius="4.07" width="9.14">
                     <color>
@@ -51,7 +51,19 @@
                 <Font name="Tahoma" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="187.0" layoutY="25.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="92.0" text="Games">
+        <Button layoutX="366.0" layoutY="25.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="92.0" text="Matches">
+            <effect>
+                <DropShadow height="9.14" radius="4.07" width="9.14">
+                    <color>
+                        <Color red="0.7647058963775635" green="0.7647058963775635" blue="0.7647058963775635" />
+                    </color>
+                </DropShadow>
+            </effect>
+            <font>
+                <Font name="Tahoma" size="14.0" />
+            </font>
+        </Button>
+        <Button layoutX="481.0" layoutY="25.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="92.0" text="Staff">
             <effect>
                 <DropShadow height="9.14" radius="4.07" width="9.14">
                     <color>
@@ -64,7 +76,7 @@
             </font>
         </Button>
         <Separator layoutX="-1.0" layoutY="73.0" prefHeight="1.0" prefWidth="600.0" />
-        <Button fx:id="buttonCreate" layoutX="121.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingCreateButton" prefHeight="25.0" prefWidth="70.0" text="Create">
+        <Button fx:id="createButton" layoutX="121.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingCreateButton" prefHeight="25.0" prefWidth="70.0" text="Create">
             <effect>
                 <DropShadow>
                     <color>
@@ -73,7 +85,7 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Button fx:id="buttonRead" layoutX="212.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingReadButton" prefHeight="25.0" prefWidth="70.0" text="Read">
+        <Button fx:id="readButton" layoutX="212.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingReadButton" prefHeight="25.0" prefWidth="70.0" text="Read">
             <effect>
                 <DropShadow>
                     <color>
@@ -91,11 +103,11 @@
                 </DropShadow>
             </effect>
         </Button>
-        <TextField fx:id="textFieldNickname" layoutX="95.0" layoutY="194.0" prefHeight="27.0" prefWidth="184.0" promptText="Nickname" />
-        <TextField fx:id="textFieldFirst_name" layoutX="297.0" layoutY="194.0" prefHeight="27.0" prefWidth="185.0" promptText="First name" />
-        <TextField fx:id="textFieldLast_name" layoutX="95.0" layoutY="246.0" prefHeight="27.0" prefWidth="184.0" promptText="Last name" />
-        <TextField fx:id="textFieldGame" layoutX="297.0" layoutY="295.0" prefHeight="27.0" prefWidth="184.0" promptText="Game" />
-        <Label layoutX="26.0" layoutY="141.0" prefHeight="28.0" prefWidth="139.0" text="CHOOSE TEAM: ">
+        <TextField fx:id="textFieldFirst_name" layoutX="95.0" layoutY="194.0" prefHeight="27.0" prefWidth="184.0" promptText="First name" />
+        <TextField fx:id="textFieldLast_name" layoutX="297.0" layoutY="194.0" prefHeight="27.0" prefWidth="185.0" promptText="Last name" />
+        <TextField fx:id="textFieldNickname" layoutX="95.0" layoutY="246.0" prefHeight="27.0" prefWidth="184.0" promptText="Nick name" />
+        <TextField fx:id="textFieldGame" layoutX="297.0" layoutY="246.0" prefHeight="27.0" prefWidth="184.0" promptText="Game" />
+        <Label layoutX="26.0" layoutY="141.0" prefHeight="28.0" prefWidth="209.0" text="CHOOSE NICKNAME: ">
             <font>
                 <Font name="Tamil MN" size="19.0" />
             </font>
@@ -103,11 +115,12 @@
         <Button layoutX="183.0" layoutY="330.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="230.0" text="Save" />
         <Button layoutX="214.0" layoutY="374.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" text="Cancel" />
         <Button layoutX="303.0" layoutY="374.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="77.0" text="Home" />
-        <Line endX="-3.8269805908203125" endY="-3.814697265625E-6" layoutX="163.0" layoutY="57.0" opacity="0.36" startX="-3.8269805908203125" startY="-36.27003479003906" />
-        <Line endX="-3.8269805908203125" endY="-3.814697265625E-6" layoutX="304.0" layoutY="57.0" opacity="0.36" startX="-3.8269805908203125" startY="-36.27003479003906" />
-        <Line endX="-3.8269805908203125" endY="-3.814697265625E-6" layoutX="437.0" layoutY="57.0" opacity="0.36" startX="-3.8269805908203125" startY="-36.27003479003906" />
+        <Line endX="-3.8269805908203125" endY="-3.814697265625E-6" layoutX="131.0" layoutY="57.0" opacity="0.36" startX="-3.8269805908203125" startY="-36.27003479003906" />
+        <Line endX="-3.8269805908203125" endY="-3.814697265625E-6" layoutX="245.0" layoutY="57.0" opacity="0.36" startX="-3.8269805908203125" startY="-36.27003479003906" />
+        <Line endX="-3.8269805908203125" endY="-3.814697265625E-6" layoutX="359.0" layoutY="57.0" opacity="0.36" startX="-3.8269805908203125" startY="-36.27003479003906" />
+        <Line endX="-3.8269805908203125" endY="-3.814697265625E-6" layoutX="473.0" layoutY="57.0" opacity="0.36" startX="-3.8269805908203125" startY="-36.27003479003906" />
         <Line endX="313.0" layoutX="287.0" layoutY="135.0" opacity="0.16" startX="-287.0" />
-        <ComboBox fx:id="comboBox" layoutX="167.0" layoutY="144.0" prefHeight="25.0" prefWidth="219.0" />
+        <ComboBox fx:id="comboBox" layoutX="232.0" layoutY="144.0" prefHeight="25.0" prefWidth="199.0" />
         <Button fx:id="deleteButton" layoutX="389.0" layoutY="89.0" mnemonicParsing="false" onAction="#pushDeleteButton" prefHeight="25.0" prefWidth="70.0" text="Delete">
             <effect>
                 <DropShadow>
@@ -117,11 +130,10 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Label layoutX="102.0" layoutY="173.0" text="Nickname" />
-        <Label layoutX="298.0" layoutY="173.0" text="First name" />
-        <Label layoutX="102.0" layoutY="229.0" text="Last name" />
+        <Label layoutX="102.0" layoutY="173.0" text="First name" />
+        <Label layoutX="298.0" layoutY="173.0" text="Last name" />
+        <Label layoutX="102.0" layoutY="229.0" text="Nickname" />
         <Label layoutX="298.0" layoutY="229.0" text="Game" />
-        <TextField fx:id="textFieldPlayer" layoutX="390.0" layoutY="143.0" prefHeight="27.0" prefWidth="185.0" promptText="Nickname" text="Game" />
     </children>
     <opaqueInsets>
         <Insets />
