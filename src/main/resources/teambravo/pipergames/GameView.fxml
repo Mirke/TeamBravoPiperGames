@@ -65,7 +65,7 @@
         </Button>
         <Separator layoutX="-1.0" layoutY="73.0" prefHeight="1.0" prefWidth="600.0" />
         <RadioButton layoutX="577.0" layoutY="5.0" mnemonicParsing="false" />
-        <Button fx:id="buttonCreate" layoutX="121.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Create">
+        <Button fx:id="buttonCreate" layoutX="121.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingCreateButton" prefHeight="25.0" prefWidth="70.0" text="Create">
             <effect>
                 <DropShadow>
                     <color>
@@ -74,7 +74,7 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Button fx:id="buttonRead" layoutX="212.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Read">
+        <Button fx:id="buttonRead" layoutX="212.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingReadButton" prefHeight="25.0" prefWidth="70.0" text="Read">
             <effect>
                 <DropShadow>
                     <color>
@@ -83,7 +83,7 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Button fx:id="updateButton" layoutX="301.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Update">
+        <Button fx:id="updateButton" layoutX="301.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingUpdateButton" prefHeight="25.0" prefWidth="70.0" text="Update">
             <effect>
                 <DropShadow>
                     <color>
@@ -92,7 +92,7 @@
                 </DropShadow>
             </effect>
         </Button>
-        <Button layoutX="386.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Delete">
+        <Button fx:id="deleteButton" layoutX="386.0" layoutY="90.0" mnemonicParsing="false" onAction="#pushingDeleteButton" prefHeight="25.0" prefWidth="70.0" text="Delete">
             <effect>
                 <DropShadow>
                     <color>
@@ -102,12 +102,12 @@
             </effect>
         </Button>
         <Label layoutX="582.0" layoutY="6.0" opacity="0.77" text="X" />
-        <TextField fx:id="textFieldTeamName" layoutX="99.0" layoutY="190.0" prefHeight="27.0" prefWidth="184.0" promptText="Team name" text="Team name" />
-        <TextField fx:id="textFieldNickname" layoutX="98.0" layoutY="222.0" prefHeight="27.0" prefWidth="185.0" promptText="Nickname" text="Player 1" />
-        <TextField fx:id="textFieldSecondPlayer" layoutX="99.0" layoutY="257.0" prefHeight="27.0" prefWidth="184.0" promptText="Player 2" text="Player 2" />
+        <TextField fx:id="textFieldTeamName" layoutX="99.0" layoutY="190.0"  prefHeight="27.0" prefWidth="184.0" promptText="Team name" text="Team name" />
+        <TextField fx:id="textFieldFirstPlayer" layoutX="98.0" layoutY="222.0"  prefHeight="27.0" prefWidth="185.0" promptText="Nickname" text="Player 1" />
+        <TextField fx:id="textFieldSecondPlayer" layoutX="99.0" layoutY="257.0"  prefHeight="27.0" prefWidth="184.0" promptText="Player 2" text="Player 2" />
         <TextField fx:id="textFieldFifthPlayer" layoutX="294.0" layoutY="257.0" prefHeight="27.0" prefWidth="184.0" promptText="Player 5" text="Player 5" />
-        <TextField fx:id="textFieldFourthPlayer" layoutX="294.0" layoutY="222.0" prefHeight="27.0" prefWidth="184.0" promptText="Player 4" text="Player 4" />
-        <TextField fx:id="textFieldThirdPlayer" layoutX="294.0" layoutY="190.0" prefHeight="27.0" prefWidth="184.0" promptText="Player 3" text="Player 3" />
+        <TextField fx:id="textFieldFourthPlayer" layoutX="294.0" layoutY="222.0"  prefHeight="27.0" prefWidth="184.0" promptText="Player 4" text="Player 4" />
+        <TextField fx:id="textFieldThirdPlayer" layoutX="294.0" layoutY="190.0"  prefHeight="27.0" prefWidth="184.0" promptText="Player 3" text="Player 3" />
         <Label layoutX="96.0" layoutY="136.0" prefHeight="18.0" prefWidth="125.0" text="GAMES:">
             <font>
                 <Font name="Tamil MN" size="19.0" />
